@@ -1,5 +1,7 @@
 # Amazon Elastic Container Service (Amazon ECS) Managed Instances TCO Calculator
 
+🔗 **Live Demo**: [https://aws-samples.github.io/sample-ecs-managed-instances-pricing-calculator/](https://aws-samples.github.io/sample-ecs-managed-instances-pricing-calculator/)
+
 Amazon ECS Managed Instances simplify container infrastructure management by automating instance provisioning, patching, and lifecycle management. This TCO calculator helps in visualizing the cost savings by using Amazon ECS Managed Instances.
 
 ## Overview
