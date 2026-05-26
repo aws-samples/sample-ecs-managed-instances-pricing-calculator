@@ -30,7 +30,7 @@ The calculator provides a comprehensive Total Cost of Ownership (TCO) analysis, 
   - **Calculated Estimates**: Fast offline pricing using base prices + regional multipliers (~95% accurate)
 - **28 AWS Regions** - Complete coverage of all major AWS regions worldwide
 - **Multi-Currency Support** - View costs in 10 major currencies with configurable exchange rates
-- **Auto-Calculated Management Fee** - ECS management fee automatically calculated as 12% of EC2 hourly cost per instance type
+- **Auto-Calculated Management Fee** - ECS management fee automatically calculated as 12% (default) of EC2 hourly cost per instance type 
 - **Adjustable Per-Instance Fee** - Customize the management fee ($/hour) for each instance type if needed
 - **Multiple Instance Types** - Add and compare multiple instance types simultaneously
 - **Comprehensive Cost Analysis** - Detailed breakdown showing:
@@ -47,7 +47,7 @@ The calculator provides a comprehensive Total Cost of Ownership (TCO) analysis, 
 1. **Configure your ECS deployment settings**:
    - Select AWS region from 28 available regions
    - Choose your preferred currency (USD, EUR, GBP, JPY, etc.)
-   - Add EC2 instance types and quantities from 710+ options
+   - Add EC2 instance types and quantities from 700+ options
    - Review auto-calculated ECS management fees
 
 2. **Adjust assumptions** (optional):
@@ -60,7 +60,7 @@ The calculator provides a comprehensive Total Cost of Ownership (TCO) analysis, 
    - View detailed cost breakdown and comparison
 
 4. **Analyze results**:
-   - Compare Standard EC2 vs ECS Managed Instances costs
+   - Compare Standard EC2 vs Amazon ECS Managed Instances costs
    - Review infrastructure and staffing cost savings
    - See time savings in platform engineering hours
 
