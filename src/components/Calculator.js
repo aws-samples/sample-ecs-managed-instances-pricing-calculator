@@ -284,7 +284,7 @@ function Calculator({ onCalculate, assumptions }) {
 
                   <FormField 
                     label="Amazon ECS Managed Instances Fee ($/hour)"
-                    description="Default: 12% of Amazon EC2 hourly cost"
+                    description="Default: 12% of Amazon EC2 hourly cost (can be overridden per instance)"
                   >
                     <Input
                       type="number"
