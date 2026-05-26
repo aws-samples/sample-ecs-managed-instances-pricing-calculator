@@ -24,7 +24,6 @@ The calculator provides a comprehensive Total Cost of Ownership (TCO) analysis, 
   - **Storage Optimized**: d3, i4-i8g series, im4gn, is4gen (10 families)
   - **Accelerated Computing**: g4-g6 series, gr6 series, p3-p6 series (14 families)
   - Latest generation: m8g/m8gd, c8g/c8gd/c8gn, r8g/r8gd, i8g, x8g (Graviton4), p5 (H100), p6-b200 (B200)
-
 - **Dynamic Pricing System** - Two methods for accurate pricing:
   - **AWS Price List API**: Fetch real, current pricing directly from AWS (100% accurate)
   - **Calculated Estimates**: Fast offline pricing using base prices + regional multipliers (~95% accurate)
@@ -47,7 +46,7 @@ The calculator provides a comprehensive Total Cost of Ownership (TCO) analysis, 
 1. **Configure your ECS deployment settings**:
    - Select AWS region from 28 available regions
    - Choose your preferred currency (USD, EUR, GBP, JPY, etc.)
-   - Add EC2 instance types and quantities from 700+ options
+   - Add EC2 instance types and quantities from 710+ options
    - Review auto-calculated ECS management fees
 
 2. **Adjust assumptions** (optional):
@@ -60,7 +59,7 @@ The calculator provides a comprehensive Total Cost of Ownership (TCO) analysis, 
    - View detailed cost breakdown and comparison
 
 4. **Analyze results**:
-   - Compare Standard EC2 vs Amazon ECS Managed Instances costs
+   - Compare Standard EC2 vs ECS Managed Instances costs
    - Review infrastructure and staffing cost savings
    - See time savings in platform engineering hours
 
@@ -98,16 +97,13 @@ npm start
 
 The app will open at `http://localhost:3000`
 
-
 ### Build for Production
 
 ```bash
 npm run build
 ```
 
-The pricing data is automatically updated before each production build.
-
-## How to Use
+### How to Use
 
 1. **Select Currency** - Choose your preferred currency from the dropdown (default: USD)
 2. **Configure Exchange Rate** - Adjust the exchange rate if needed (auto-populated for each currency)
@@ -124,30 +120,31 @@ The pricing data is automatically updated before each production build.
 
 ## Pricing System
 
-The calculator uses a sophisticated dynamic pricing system with two methods:
+The calculator uses a dynamic pricing system with two methods:
 
 ### AWS Price List API Method (Recommended)
 - **Accuracy**: 100% - Real AWS pricing
 - **Coverage**: 28 regions, 700+ instance types
-- **Update**: `npm run fetch-aws-pricing`
+- **Command**: `npm run fetch-aws-pricing`
 - **Time**: 10-15 minutes
 - **Best for**: Production, monthly updates
 
 ### Calculated Estimates Method
 - **Accuracy**: ~95% - Estimated pricing
 - **Coverage**: 28 regions, 700+ instance types
-- **Update**: `npm run update-pricing`
+- **Command**: `npm run update-pricing`
 - **Time**: 5 seconds
 - **Best for**: Development, quick updates
 
-Both methods generate `public/data/ec2-prices.json` which is loaded by the app.
+Both methods generate `public/data/ec2-prices.json` which is loaded by the app. Monthly updates are recommended for production accuracy.
 
-**Pricing Data Coverage**:
-- 28 AWS regions (US, Canada, South America, Europe, Asia Pacific, Middle East, Africa, Israel)
-- 700+ instance types across 101 families
-- All major categories (General Purpose, Compute, Memory, Storage, Accelerated)
-- Latest generation instances (Graviton4, H100, B200)
+See [PRICING_SYSTEM.md](./PRICING_SYSTEM.md) for complete documentation.
 
+### Pricing Details
+
+- **EC2 Costs**: Based on AWS On-Demand pricing for Linux instances, fetched from AWS Price List API or calculated using regional multipliers.
+- **ECS Managed Instances Fee**: Automatically calculated as 12% of EC2 hourly cost per instance type. Can be adjusted individually. Actual fees may vary — verify in AWS Console or contact AWS Support.
+- **Regional Pricing**: Automatically adjusted for each AWS region. Regional multipliers range from 1.0 (US East) to 1.35 (São Paulo).
 
 ## Currency Support
 
@@ -164,45 +161,9 @@ The calculator supports 10 major currencies with configurable exchange rates:
 - **SGD** - Singapore Dollar (S$)
 - **BRL** - Brazilian Real (R$)
 
-**Features**:
-- Configurable exchange rates in the UI
-- Dual currency display (USD / Selected Currency) when non-USD selected
-- Exchange rates auto-populate with approximate values
-- PDF exports include currency information
-- Currency codes used in PDF (EUR, GBP, etc.) for compatibility
+Exchange rates auto-populate with approximate values and can be adjusted in the UI. PDF exports include dual currency display (USD / Selected Currency) when a non-USD currency is selected.
 
-**Note**: Exchange rates are approximate mid-market rates as of May 26, 2026. Users should verify rates from reliable sources for accurate estimates. All AWS pricing is based on USD.
-
-## Pricing Details
-
-### EC2 Costs
-- Based on AWS On-Demand pricing for Linux instances
-- Fetched from AWS Price List API or calculated using regional multipliers
-- Covers 700+ instance types across 28 regions
-- Updated monthly (recommended)
-
-### ECS Managed Instances Fee
-- Automatically calculated per instance type
-- Default: 12% of EC2 hourly cost
-- Displayed as price per hour ($/hour)
-- Can be adjusted individually for each instance type
-- Calculated as: `instance_count × management_fee_per_hour × hours_per_month`
-- Actual ECS Managed Instances fees may vary by instance type
-- Verify pricing in AWS Console or contact AWS Support
-
-### Regional Pricing
-- Automatically adjusted for each AWS region
-- 28 regions supported worldwide
-- Regional multipliers range from 1.0 (US East) to 1.35 (São Paulo)
-
-### Pricing Data Updates
-```bash
-# Production: Fetch real AWS pricing (monthly)
-npm run fetch-aws-pricing
-
-# Development: Generate calculated estimates (as needed)
-npm run update-pricing
-```
+**Note**: Exchange rates are approximate mid-market rates as of May 26, 2026. Users should verify rates from reliable sources for accurate estimates.
 
 ## Cost Components
 
@@ -230,9 +191,6 @@ The calculator provides a comprehensive cost analysis including:
 
 All costs can be viewed in your preferred currency with automatic conversion from USD base pricing.
 
-
-
-
 ## Quick Commands
 
 ```bash
@@ -242,7 +200,7 @@ npm run update-pricing       # Quick pricing update (5 sec)
 
 # Production
 npm run fetch-aws-pricing    # Fetch real AWS pricing (10-15 min)
-npm run build                # Build for production (auto-updates pricing)
+npm run build                # Build for production
 
 # Testing
 npm test                     # Run tests
