@@ -29,7 +29,7 @@ The calculator provides a comprehensive Total Cost of Ownership (TCO) analysis, 
   - **Calculated Estimates**: Fast offline pricing using base prices + regional multipliers (~95% accurate)
 - **28 AWS Regions** - Complete coverage of all major AWS regions worldwide
 - **Multi-Currency Support** - View costs in 10 major currencies with configurable exchange rates
-- **Auto-Calculated Management Fee** - ECS management fee automatically calculated as 12% (default) of EC2 hourly cost per instance type 
+- **Auto-Calculated Management Fee** - ECS management fee automatically calculated as 12% of EC2 hourly cost per instance type
 - **Adjustable Per-Instance Fee** - Customize the management fee ($/hour) for each instance type if needed
 - **Multiple Instance Types** - Add and compare multiple instance types simultaneously
 - **Comprehensive Cost Analysis** - Detailed breakdown showing:
@@ -40,45 +40,6 @@ The calculator provides a comprehensive Total Cost of Ownership (TCO) analysis, 
 - **Platform Engineering Costs** - Calculate and compare staffing costs between manual EC2 management and automated ECS management
 - **Configurable Assumptions** - Adjust platform engineering hourly rates and management time estimates
 - **PDF Export** - Download detailed cost analysis reports with currency support
-
-## Getting Started
-
-1. **Configure your ECS deployment settings**:
-   - Select AWS region from 28 available regions
-   - Choose your preferred currency (USD, EUR, GBP, JPY, etc.)
-   - Add EC2 instance types and quantities from 710+ options
-   - Review auto-calculated ECS management fees
-
-2. **Adjust assumptions** (optional):
-   - Platform engineer hourly rate
-   - Infrastructure management hours per instance
-   - ECS management fee per instance type
-
-3. **Calculate TCO**:
-   - Click "Calculate Costs" to see comprehensive results
-   - View detailed cost breakdown and comparison
-
-4. **Analyze results**:
-   - Compare Standard EC2 vs ECS Managed Instances costs
-   - Review infrastructure and staffing cost savings
-   - See time savings in platform engineering hours
-
-5. **Export report**:
-   - Download PDF with detailed cost analysis
-   - Share with stakeholders for decision-making
-
-## Pricing Data
-
-This calculator uses accurate AWS EC2 On-Demand pricing data for Linux/UNIX instances:
-
-- **Source**: AWS Price List API or calculated estimates
-- **Coverage**: 700+ instance types across 28 regions
-- **Update Methods**: 
-  - `npm run fetch-aws-pricing` - Real AWS pricing (10-15 min, 100% accurate)
-  - `npm run update-pricing` - Calculated estimates (5 sec, ~95% accurate)
-- **Update Frequency**: Monthly recommended for production accuracy
-
-See [PRICING_SYSTEM.md](./PRICING_SYSTEM.md) for complete documentation.
 
 ## Installation
 
